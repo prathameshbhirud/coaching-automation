@@ -1,6 +1,9 @@
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
+using CoachingAutomation.Models;
+using Microsoft.Extensions.Options;
+
 
 namespace CoachingAutomation.Services;
 

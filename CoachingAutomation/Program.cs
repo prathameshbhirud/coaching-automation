@@ -2,6 +2,7 @@ using CoachingAutomation.Services;
 using CoachingAutomation.Jobs;
 using Hangfire;
 using Hangfire.MemoryStorage;
+using CoachingAutomation.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
