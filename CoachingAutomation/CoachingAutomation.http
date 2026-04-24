@@ -1,0 +1,6 @@
+@CoachingAutomation_HostAddress = http://localhost:5116
+
+GET {{CoachingAutomation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

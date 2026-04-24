@@ -1,0 +1,12 @@
+bin/
+obj/
+.vs/
+.vscode/
+
+# secrets
+appsettings.json
+credentials.json
+
+# OS files
+.DS_Store
+Thumbs.db
