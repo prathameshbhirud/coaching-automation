@@ -20,8 +20,11 @@ builder.Services.Configure<TelegramSettings>(
 // Services
 builder.Services.AddSingleton<GoogleSheetService>();
 builder.Services.AddSingleton<NotificationService>();
-builder.Services.AddSingleton<WhatsAppService>();
-builder.Services.AddSingleton<TelegramService>();
+// builder.Services.AddSingleton<WhatsAppService>();
+// builder.Services.AddSingleton<TelegramService>();
+builder.Services.AddSingleton<INotificationSender, WhatsAppService>();
+builder.Services.AddSingleton<INotificationSender, TelegramService>();
+builder.Services.AddSingleton<NotificationDispatcher>();
 builder.Services.AddSingleton<NotificationJob>();
 
 // Hangfire

@@ -6,4 +6,6 @@ public class Student
     public string ParentPhone { get; set; }
     public string Attendance { get; set; }
     public decimal FeesDue { get; set; }
+
+    public NotificationChannel PreferredChannel { get; set; }
 }

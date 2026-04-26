@@ -4,12 +4,12 @@ using Twilio.Types;
 using CoachingAutomation.Models;
 using Microsoft.Extensions.Options;
 
-
 namespace CoachingAutomation.Services;
 
-public class WhatsAppService
+public class WhatsAppService : INotificationSender
 {
     private readonly TwilioSettings _settings;
+    public NotificationChannel Channel => NotificationChannel.WhatsApp;
 
     public WhatsAppService(IOptions<TwilioSettings> settings)
     {
@@ -19,6 +19,15 @@ public class WhatsAppService
     }
 
     public void SendMessage(string to, string message)
+    {
+        MessageResource.Create(
+            from: new PhoneNumber(_settings.FromNumber),
+            to: new PhoneNumber($"whatsapp:{to}"),
+            body: message
+        );
+    }
+
+    public async Task SendAsync(string to, string message)
     {
         MessageResource.Create(
             from: new PhoneNumber(_settings.FromNumber),

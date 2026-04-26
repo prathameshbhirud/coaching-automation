@@ -6,10 +6,11 @@ using CoachingAutomation.Models;
 
 namespace CoachingAutomation.Services;
 
-public class TelegramService
+public class TelegramService : INotificationSender
 {
     private readonly TelegramSettings _settings;
     private readonly HttpClient _httpClient;
+    public NotificationChannel Channel => NotificationChannel.Telegram;
 
     public TelegramService(IOptions<TelegramSettings> settings)
     {
@@ -33,5 +34,10 @@ public class TelegramService
             "application/json");
 
         await _httpClient.PostAsync(url, content);
+    }
+
+    public async Task SendAsync(string to, string message)
+    {
+        await SendMessage(message); // ignore 'to' or map later
     }
 }

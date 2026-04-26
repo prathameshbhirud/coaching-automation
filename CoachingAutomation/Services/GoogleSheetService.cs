@@ -40,7 +40,8 @@ public class GoogleSheetService
                 StudentName = row[0]?.ToString(),
                 ParentPhone = row[1]?.ToString(),
                 Attendance = row[2]?.ToString(),
-                FeesDue = decimal.TryParse(row[3]?.ToString(), out var fee) ? fee : 0
+                FeesDue = decimal.TryParse(row[3]?.ToString(), out var fee) ? fee : 0,
+                PreferredChannel = Enum.TryParse(row[4]?.ToString(), true, out NotificationChannel ch) ? ch: NotificationChannel.WhatsApp
             });
         }
 
