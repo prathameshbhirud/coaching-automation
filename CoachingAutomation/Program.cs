@@ -14,10 +14,14 @@ builder.Services.Configure<TwilioSettings>(
 builder.Services.Configure<GoogleSettings>(
     builder.Configuration.GetSection("Google"));
 
+builder.Services.Configure<TelegramSettings>(
+    builder.Configuration.GetSection("Telegram"));
+
 // Services
 builder.Services.AddSingleton<GoogleSheetService>();
 builder.Services.AddSingleton<NotificationService>();
 builder.Services.AddSingleton<WhatsAppService>();
+builder.Services.AddSingleton<TelegramService>();
 builder.Services.AddSingleton<NotificationJob>();
 
 // Hangfire
